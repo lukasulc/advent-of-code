@@ -5,17 +5,19 @@ from task1 import dial_zero_counter, calculate_dial_position
 
 def custom_condition(current: int, rotation: int, max_range: int) -> int:
     dial_position = calculate_dial_position(current, rotation, max_range)
-    if current == 0 and rotation < 0:
-        current = max_range - 1
-    q, r = divmod(current + rotation, max_range)
-    print(f"Custom condition: current={current}, rotation={rotation}, dial_position={dial_position}, q={q}, r={r}")
-    if q < 0:
-        return (abs(q), dial_position)
-    if q > 0:
-        return (q, dial_position)
-    if r == 0:
-        return (1, dial_position)
-    return (0, dial_position)
+
+    if current == 0:
+        return divmod(abs(rotation), max_range)[0], dial_position
+
+    # Assume rotation can't be zero
+    tmp_dial = current + rotation
+    if tmp_dial == 0:
+        return 1, dial_position
+    
+    if tmp_dial < 0:
+        return divmod(-tmp_dial, max_range)[0] + 1, dial_position
+        
+    return divmod(tmp_dial, max_range)[0], dial_position
 
 def main():
     script_dir = Path(__file__).parent

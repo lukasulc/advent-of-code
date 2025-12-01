@@ -13,7 +13,7 @@ def dial_zero_counter(
         rotations: list[str] = [],
         current = 50,
         max_range = 100,
-        condition: Callable[[int, int, int],tuple[int,int]] = custom_condition):
+        condition: Callable[[int, int, int],tuple[int,int]] = custom_condition) -> tuple[int, int]:
     """Apply a list of rotations and return the final dial value.
 
     rotations - iterable of strings like 'R10' or 'L5'
@@ -43,6 +43,6 @@ if __name__ == "__main__":
     input_path = script_dir / "input.txt"
 
     with input_path.open("r", encoding="utf-8") as f:
-        # possible to read lines one by one in the case of a really large file
+        # Possible to read lines one by one in the case of a really large file
         result, _ = dial_zero_counter(f.readlines())
         print(result)
