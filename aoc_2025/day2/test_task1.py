@@ -14,8 +14,8 @@ class TestTask1(unittest.TestCase):
             [6464],
             [123123],
         ]
-        for (start, end), solutions in zip(ranges, solutions):
-            self.assertEqual(get_invalid_in_range(start, end), solutions)
+        for (start, end), solution in zip(ranges, solutions):
+            self.assertEqual(get_invalid_in_range(start, end), solution)
 
     def test_offical_example(self):
         ranges = [
@@ -44,8 +44,8 @@ class TestTask1(unittest.TestCase):
             [],
             [],
         ]
-        for (start, end), solutions in zip(ranges, solutions):
-            self.assertEqual(get_invalid_in_range(start, end), solutions)
+        for (start, end), solution in zip(ranges, solutions):
+            self.assertEqual(get_invalid_in_range(start, end), solution)
 
 
 if __name__ == "__main__":
