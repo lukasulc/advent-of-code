@@ -15,9 +15,11 @@ class TestTask1(unittest.TestCase):
     def test_last_numbers_example(self):
         banks = [
             "8121111111119",
+            "3222222212222211211322212225122222252212233221262132222211112313222322122232122222232222222223162122"
         ]
         solutions = [
             821111111119,
+            633333362122,
         ]
         for bank, solution in zip(banks, solutions):
             self.assertEqual(get_largest_joltage(bank), solution)
